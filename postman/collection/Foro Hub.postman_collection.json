@@ -21,13 +21,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Course B1\",\n    \"category\": \"Category 2A\"\n}",
+							"raw": "{\n    \"name\": \"Course Test Update\",\n    \"category\": \"Category Test Update\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -35,17 +35,118 @@
 							}
 						},
 						"url": {
-							"raw": "{{BaseUrl}}/course/2",
+							"raw": "{{BaseUrl}}/course/5",
 							"host": [
 								"{{BaseUrl}}"
 							],
 							"path": [
 								"course",
-								"2"
+								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update course",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Course Test Update\",\n    \"category\": \"Category Test Update\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course/5",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:42:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"name\": \"Course Test Update\",\n    \"category\": \"Category Test Update\"\n}"
+						}
+					]
 				},
 				{
 					"name": "All courses",
@@ -62,7 +163,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
@@ -76,7 +177,98 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "All courses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/course",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:42:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"name\": \"Course A\",\n            \"category\": \"Category 1\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Course B1\",\n            \"category\": \"Category 2A\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Prueba API\",\n            \"category\": \"Prueba API category\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Prueba API Test\",\n            \"category\": \"Prueba API Test category\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 20,\n        \"sort\": {\n            \"sorted\": false,\n            \"unsorted\": true,\n            \"empty\": true\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 4,\n    \"last\": true,\n    \"first\": true,\n    \"size\": 20,\n    \"number\": 0,\n    \"sort\": {\n        \"sorted\": false,\n        \"unsorted\": true,\n        \"empty\": true\n    },\n    \"numberOfElements\": 4,\n    \"empty\": false\n}"
+						}
+					]
 				},
 				{
 					"name": "Find course",
@@ -90,22 +282,114 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{BaseUrl}}/course/2",
+							"raw": "{{BaseUrl}}/course/5",
 							"host": [
 								"{{BaseUrl}}"
 							],
 							"path": [
 								"course",
-								"2"
+								"5"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Find course",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/course/5",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:42:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"name\": \"Prueba API Test\",\n    \"category\": \"Prueba API Test category\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Create course",
@@ -119,13 +403,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Prueba API\",\n    \"category\": \"Prueba API category\"\n}",
+							"raw": "{\n    \"name\": \"Prueba API Test\",\n    \"category\": \"Prueba API Test category\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -142,7 +426,107 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create course",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Prueba API Test\",\n    \"category\": \"Prueba API Test category\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/course",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"course"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:41:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"name\": \"Prueba API Test\",\n    \"category\": \"Prueba API Test category\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -151,6 +535,19 @@
 			"item": [
 				{
 					"name": "Authentication user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"AccessToken\", jsonData[\"accessToken\"]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {}
 					},
@@ -165,7 +562,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"prueba@gmail.com\",\n    \"password\": \"prueba123$\"\n   \n}",
+							"raw": "{\n    \"email\": \"prueba10@gmail.com\",\n    \"password\": \"prueba123$\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -292,7 +689,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"usuario\",\n    \"username\": \"master1\",\n    \"email\": \"prueba@gmail.com\",\n    \"password\": \"prueba123$\",\n    \"repeatPassword\": \"prueba123$\"\n}",
+							"raw": "{\n    \"name\": \"user2\",\n    \"username\": \"master2\",\n    \"email\": \"prueba10@gmail.com\",\n    \"password\": \"prueba123$\",\n    \"repeatPassword\": \"prueba123$\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -309,7 +706,102 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Register user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"user2\",\n    \"username\": \"master2\",\n    \"email\": \"prueba10@gmail.com\",\n    \"password\": \"prueba123$\",\n    \"repeatPassword\": \"prueba123$\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/user",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:40:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"prueba10@gmail.com\",\n    \"name\": \"user2\",\n    \"roles\": [\n        \"user\"\n    ]\n}"
+						}
+					]
 				}
 			]
 		},
@@ -328,7 +820,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
@@ -342,7 +834,98 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Profile user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:41:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"prueba10@gmail.com\",\n    \"name\": \"user2\",\n    \"roles\": [\n        \"user\"\n    ]\n}"
+						}
+					]
 				}
 			]
 		},
@@ -361,13 +944,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Topic 1\",\n    \"message\": \"Message 3\",\n    \"courseId\": 2\n}",
+							"raw": "{\n    \"title\": \"Topic Test User 10\",\n    \"message\": \"Message Test User 10\",\n    \"courseId\": 5\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -384,7 +967,562 @@
 							]
 						}
 					},
+					"response": [
+						{
+							"name": "Create topic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Topic Test User 10\",\n    \"message\": \"Message Test User 10\",\n    \"courseId\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/topic",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"topic"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:43:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"title\": \"Topic Test User 10\",\n    \"message\": \"Message Test User 10\",\n    \"status\": \"Open\",\n    \"createdAt\": \"20.01.2025\",\n    \"author\": {\n        \"email\": \"prueba10@gmail.com\",\n        \"name\": \"user2\",\n        \"roles\": [\n            \"user\"\n        ]\n    },\n    \"course\": {\n        \"id\": 5,\n        \"name\": \"Course Test Update\",\n        \"category\": \"Category Test Update\"\n    },\n    \"answers\": []\n}"
+						},
+						{
+							"name": "Create topic duplicated",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Topic Test User 10\",\n    \"message\": \"Message Test User 10\",\n    \"courseId\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/topic",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"topic"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:43:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"field\": \"message\",\n    \"message\": \"Error interno en el servidor.\\nThe title and topic have already been created previously by the user :prueba10@gmail.com and topic by id: 15\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete topic",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/topic/14",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"topic",
+								"14"
+							]
+						}
+					},
 					"response": []
+				},
+				{
+					"name": "Update topic",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AccessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Topic One Test 2\",\n    \"message\": \"Message Third Test 2\",\n    \"courseId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/topic/12",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"topic",
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update topic",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Topic One Test Update\",\n    \"message\": \"Message Third Test Update\",\n    \"courseId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/topic/15",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"topic",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:44:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"title\": \"Topic One Test Update\",\n    \"message\": \"Message Third Test Update\",\n    \"status\": \"Open\",\n    \"createdAt\": \"20.01.2025\",\n    \"author\": {\n        \"email\": \"prueba10@gmail.com\",\n        \"name\": \"user2\",\n        \"roles\": [\n            \"user\"\n        ]\n    },\n    \"course\": {\n        \"id\": 2,\n        \"name\": \"Course B1\",\n        \"category\": \"Category 2A\"\n    },\n    \"answers\": []\n}"
+						},
+						{
+							"name": "Update topic duplicated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Topic One Test Update\",\n    \"message\": \"Message Third Test Update\",\n    \"courseId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/topic/12",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"topic",
+										"12"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:44:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"field\": \"message\",\n    \"message\": \"Error interno en el servidor.\\nThe title and topic have already been created previously by the user :prueba10@gmail.com and topic by id: 15\"\n}"
+						},
+						{
+							"name": "Update topic no belong to the author",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Topic One Test 2\",\n    \"message\": \"Message Third Test 2\",\n    \"courseId\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/topic/12",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"topic",
+										"12"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:45:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"field\": \"message\",\n    \"message\": \"Error interno en el servidor.\\nThe topic by id 12 not belong to the author prueba10@gmail.com\"\n}"
+						}
+					]
 				},
 				{
 					"name": "All topics",
@@ -398,7 +1536,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{UserJwt}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
@@ -426,18 +1564,88 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{BaseUrl}}/topic/3",
+							"raw": "{{BaseUrl}}/topic/13",
 							"host": [
 								"{{BaseUrl}}"
 							],
 							"path": [
 								"topic",
-								"3"
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search topic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{AccessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BaseUrl}}/topic/search?name=Topic&year=2025",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"topic",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Topic",
+									"description": "Required course name string \"Math class\""
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Optional page number",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"description": "Optional page size number",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "ASC",
+									"description": "optional ASC (Defaulr) or DESC string",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "2025"
+								}
 							]
 						}
 					},
@@ -460,13 +1668,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{TokenAccess}}",
+								"value": "{{AccessToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"message\": \"Message 1\",\n    \"solution\": \"Solution 1\",\n    \"topicId\": 3\n}",
+							"raw": "{\n    \"message\": \"Message Test\",\n    \"solution\": \"Solution Test\",\n    \"topicId\": 17\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -483,7 +1691,202 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create answer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"message\": \"Message Test\",\n    \"solution\": \"Solution Test\",\n    \"topicId\": 15\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/answer",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"answer"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:46:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Message Test\",\n    \"solution\": \"Solution Test\",\n    \"author\": {\n        \"email\": \"prueba10@gmail.com\",\n        \"name\": \"user2\",\n        \"roles\": [\n            \"user\"\n        ]\n    },\n    \"createdAt\": \"20.01.2025\"\n}"
+						},
+						{
+							"name": "Create answer topic not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{AccessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"message\": \"Message Test\",\n    \"solution\": \"Solution Test\",\n    \"topicId\": 17\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/answer",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"answer"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Jan 2025 18:46:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"field\": \"message\",\n    \"message\": \"Error interno en el servidor.\\nTopic not found by id : 17\"\n}"
+						}
+					]
 				}
 			]
 		}
