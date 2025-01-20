@@ -9,7 +9,10 @@ import java.util.Optional;
 
 public interface ICourseService {
     Page<CourseResponse> findAll(Pageable pageable);
+
     Optional<CourseResponse> findById(Long courseId);
+
     CourseResponse create(CourseRequest course);
+
     CourseResponse updateById(Long courseId, CourseRequest course);
 }

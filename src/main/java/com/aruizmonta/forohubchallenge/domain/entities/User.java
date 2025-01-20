@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 @Log4j2
 @Setter
@@ -37,13 +37,14 @@ public class User implements UserDetails {
     @Column(nullable = false, length = 50)
     private String name;
     private String password;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
-            uniqueConstraints = { @UniqueConstraint(columnNames = {"user_id", "role_id"})}
+            inverseJoinColumns = @JoinColumn(name = "role_id"),
+            uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role_id"})}
     )
-    private HashSet<Role> roles;
+    private Set<Role> assignedRoles;
 
     @OneToMany(targetEntity = Response.class, mappedBy = "author", cascade = CascadeType.ALL)
     private List<Response> responses;
@@ -52,23 +53,26 @@ public class User implements UserDetails {
     private List<Topic> topics;
 
     public User() {
-        roles = new HashSet<>();
+        assignedRoles = new HashSet<>();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (roles.isEmpty()) return null;
-        List<RolePermission> granted = roles.stream()
+        if (assignedRoles.isEmpty()) return null;
+        List<RolePermission> granted = assignedRoles.stream()
                 .map(role -> RolePermission.valueOf(role.getName()))
                 .toList();
-        log.log(Level.DEBUG, granted.toString());
+        granted.forEach(rolePermission -> System.out.println(Level.DEBUG + " -> " + rolePermission.name()));
+
 
         List<SimpleGrantedAuthority> authorities = granted.stream().map(RolePermission::getPermissions)
                 .map(permissions -> permissions.stream().map(permission -> new SimpleGrantedAuthority(permission.name())).toList())
                 .flatMap(List::stream)
                 .toList();
+        authorities.forEach(authority ->
+                System.out.println(Level.DEBUG + " -> " + authority.toString())
+        );
 
-        log.log(Level.DEBUG, authorities);
         return authorities;
     }
 

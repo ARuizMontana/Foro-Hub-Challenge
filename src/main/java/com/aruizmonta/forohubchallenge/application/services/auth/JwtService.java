@@ -4,11 +4,10 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import jakarta.servlet.http.HttpServletRequest;
+import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
@@ -43,23 +42,11 @@ public class JwtService {
         return Keys.hmacShaKeyFor(passwordDecoded);
     }
 
-    public String extractUsername(String jwt) {
+    public String extractUsername(String jwt) throws SignatureException {
         return extractAllClaims(jwt).getSubject();
     }
 
-    private Claims extractAllClaims(String jwt) {
+    private Claims extractAllClaims(String jwt) throws SignatureException {
         return Jwts.parser().verifyWith(generateKey()).build().parseSignedClaims(jwt).getPayload();
-    }
-
-    public String extractJwtFromRequest(HttpServletRequest request) {
-        String authorization = request.getHeader("Authorization");
-        if(!StringUtils.hasText(authorization) || !authorization.startsWith("Bearer ")) {
-            return null;
-        }
-        return authorization.split(" ")[1];
-    }
-
-    public Date extractExpiration(String jwt) {
-        return extractAllClaims(jwt).getExpiration();
     }
 }

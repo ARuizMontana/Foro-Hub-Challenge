@@ -4,7 +4,8 @@ import com.aruizmonta.forohubchallenge.application.services.ICourseService;
 import com.aruizmonta.forohubchallenge.domain.dto.course.CourseRequest;
 import com.aruizmonta.forohubchallenge.domain.dto.course.CourseResponse;
 import com.aruizmonta.forohubchallenge.domain.entities.Course;
-import com.aruizmonta.forohubchallenge.infrastructure.utils.EntityNotFoundException;
+import com.aruizmonta.forohubchallenge.infrastructure.utils.exception.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class CourseImpl implements ICourseService {
+@Transactional
+public class CourseServiceImpl implements ICourseService {
 
     @Autowired
     private CourseRepository courseRepository;

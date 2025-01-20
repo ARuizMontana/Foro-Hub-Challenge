@@ -1,13 +1,8 @@
 package com.aruizmonta.forohubchallenge.infrastructure.utils;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Arrays;
 import java.util.List;
 
-@Setter
-@Getter
 public enum RolePermission {
     admin(Arrays.asList(
             Permission.READ_MY_PROFILE,
@@ -36,4 +31,7 @@ public enum RolePermission {
         this.permissions = permissions;
     }
 
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
 }

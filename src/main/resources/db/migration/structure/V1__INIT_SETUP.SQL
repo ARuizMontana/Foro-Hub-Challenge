@@ -1,5 +1,6 @@
+create database if not exists `foro-hub-db`;
 create table roles (
-    rol_id  bigint primary key auto_increment,
+    role_id  bigint primary key auto_increment,
     name varchar(50)  unique not null
 );
 
@@ -16,7 +17,7 @@ create table users_roles(
     role_id bigint not null,
     primary key (user_id, role_id),
     foreign key (user_id) references users(user_id) on delete cascade on update cascade,
-    foreign key (role_id) references roles(rol_id) on delete cascade on update cascade
+    foreign key (role_id) references roles(role_id) on delete cascade on update cascade
 );
 
 create table courses(

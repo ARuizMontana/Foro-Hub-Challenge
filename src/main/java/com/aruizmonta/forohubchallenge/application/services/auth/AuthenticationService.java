@@ -1,12 +1,15 @@
 package com.aruizmonta.forohubchallenge.application.services.auth;
 
 import com.aruizmonta.forohubchallenge.application.services.IUserService;
-import com.aruizmonta.forohubchallenge.domain.dto.user.UserRequest;
-import com.aruizmonta.forohubchallenge.domain.dto.user.UserResponse;
+import com.aruizmonta.forohubchallenge.domain.dto.auth.AuthenticationRequest;
+import com.aruizmonta.forohubchallenge.domain.dto.auth.AuthenticationResponse;
 import com.aruizmonta.forohubchallenge.domain.entities.Role;
 import com.aruizmonta.forohubchallenge.domain.entities.User;
+import com.aruizmonta.forohubchallenge.infrastructure.utils.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -24,17 +27,26 @@ public class AuthenticationService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    public UserResponse create(UserRequest user) {
-        User register = userService.create(user);
-        UserResponse response = new UserResponse(register);
-        response.setJwt(jwtService.generateToken(register, generateExtraClaims(register)));
-        return response;
+    public AuthenticationResponse create(AuthenticationRequest request) {
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                request.getEmail(), request.getPassword()
+        );
+        authenticationManager.authenticate(authenticationToken);
+        User user = userService.login(request.getEmail()).orElseThrow(() -> new EntityNotFoundException("User not found"));
+        String jwt = jwtService.generateToken(user, generateExtraClaims(user));
+
+        return new AuthenticationResponse(jwt);
+    }
+
+    public User findLoggedInUser() {
+        UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        return userService.findUserByEmail(auth.getPrincipal().toString()).orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 
     private Map<String, Object> generateExtraClaims(User user) {
         Map<String, Object> extraClaims = new HashMap<>();
         extraClaims.put("name", user.getName());
-        extraClaims.put("role", String.join(",", user.getRoles().stream().map(Role::getName).toList()));
+        extraClaims.put("role", String.join(",", user.getAssignedRoles().stream().map(Role::getName).toList()));
         extraClaims.put("authorities", user.getAuthorities());
         return extraClaims;
     }

@@ -23,7 +23,7 @@ public class Role {
     private String name;
 
     @JsonIgnoreProperties({"roles","handler","hibernateLazyInitializer"})
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "assignedRoles")
     private Set<User> users;
 
     public Role() {
