@@ -5,6 +5,7 @@ import com.aruizmonta.forohubchallenge.domain.entities.Course;
 import com.aruizmonta.forohubchallenge.domain.entities.Topic;
 import com.aruizmonta.forohubchallenge.domain.entities.User;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +22,7 @@ public class TopicRequest implements Serializable {
     @NotBlank
     @Size(min = 1, max = 255)
     private String message;
-    @NotBlank
+    @Positive
     private Long courseId;
 
 
