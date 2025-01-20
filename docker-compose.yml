@@ -1,0 +1,19 @@
+services:
+  mysqldb:
+    image: mysql:8.4.3
+    container_name: 'mysql-foro-hub'
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'DB_NAME'
+      MYSQL_USER: 'USER_MYSQL'
+      MYSQL_PASSWORD: 'PASSWORD_USER_MYSQL'
+      MYSQL_ROOT_PASSWORD: 'ROOT_PASSWORD_MYSQL'
+    ports:
+      # <Exposed> : <Inside container>
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - foro-hub-data:/var/lib/mysql
+volumes:
+  foro-hub-data:
