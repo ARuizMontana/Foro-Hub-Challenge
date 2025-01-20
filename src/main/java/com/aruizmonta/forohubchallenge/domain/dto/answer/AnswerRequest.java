@@ -4,6 +4,7 @@ import com.aruizmonta.forohubchallenge.domain.entities.Response;
 import com.aruizmonta.forohubchallenge.domain.entities.Topic;
 import com.aruizmonta.forohubchallenge.domain.entities.User;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ public class AnswerRequest implements Serializable {
     @NotBlank
     @Size(min = 3, max = 255)
     private String solution;
-    @NotBlank
+    @Positive
     private Long topicId;
 
     public AnswerRequest() {
